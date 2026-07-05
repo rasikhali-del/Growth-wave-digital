@@ -13,10 +13,9 @@ const values = [
 ];
 
 const team = [
-  { name: "Ubaid Ahmed", role: "Digital Marketing Specialist", initials: "UB" },
-  { name: "Unknown", role: "", initials: "N" },
-  { name: "Unknown", role: "", initials: "N" },
-  { name: "Unknown", role: "", initials: "N" },
+  { name: "Ubaid Ahmed", role: "Social media marketing & SEO specialist", image: "/Ubaid.jpeg", position: "center 20%", initials: "UB" },
+  { name: "Azeem", role: "Lead generation & Social media marketing Expert", image: "/Azeem.jpeg", position: "center top", initials: "AZ" },
+  { name: "Khalil", role: "Video editor & Graphic designer", image: "/Khalil.jpeg", position: "center top", initials: "KH" },
 ];
 
 const stats = [
@@ -25,11 +24,6 @@ const stats = [
   { value: "4.9/5", label: "Avg. Rating" },
   { value: "300%+", label: "Avg. ROI" },
 ];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0 },
-};
 
 export default function About() {
   return (
@@ -236,26 +230,48 @@ export default function About() {
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">The people behind your growth.</p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {team.map((member, i) => (
               <motion.div
                 key={member.name + i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
-                whileHover={{ y: -8, transition: { type: "spring", stiffness: 300 } }}
-                className="glass-card rounded-2xl p-6 text-center group"
+                transition={{ delay: i * 0.12, type: "spring", stiffness: 100, damping: 14 }}
+                whileHover={{ y: -10, transition: { type: "spring", stiffness: 300 } }}
+                className="group glass-card rounded-3xl p-8 text-center relative overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-shadow duration-300"
               >
+                {/* Glow ring behind avatar */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/10 to-purple-500/10" />
+
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow"
-                >
-                  {member.initials}
-                </motion.div>
-                <h3 className="font-semibold text-gray-900">{member.name}</h3>
-                <p className="text-sm text-gray-500">{member.role}</p>
+  whileHover={{ scale: 1.06 }}
+  transition={{ type: "spring", stiffness: 300 }}
+  className="relative w-32 h-32 rounded-3xl mx-auto mb-6 overflow-hidden ring-4 ring-white shadow-xl shadow-primary/25 bg-gradient-to-br from-primary to-purple-600"
+>
+  {member.image ? (
+    <img
+      src={member.image}
+      alt={member.name}
+      loading="lazy"
+      className="w-full h-full object-cover"
+      style={{ objectPosition: member.position || "center top" }}
+      onError={(e) => {
+        e.currentTarget.style.display = "none";
+        e.currentTarget.nextSibling.style.display = "flex";
+      }}
+    />
+  ) : null}
+  <div
+    className="w-full h-full flex items-center justify-center text-white text-3xl font-bold"
+    style={{ display: member.image ? "none" : "flex" }}
+  >
+    {member.initials}
+  </div>
+</motion.div>
+
+                <h3 className="relative text-xl font-bold text-gray-900">{member.name}</h3>
+                <p className="relative text-sm text-primary font-medium mt-1">{member.role}</p>
               </motion.div>
             ))}
           </div>

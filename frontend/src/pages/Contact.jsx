@@ -24,7 +24,7 @@ export default function Contact() {
                   { icon: FiMail, label: "Email", value: "marketings073@gmail.com", href: "marketings073@gmail.com" },
                   { icon: FiPhone, label: "Phone", value: "+923705856404", href: "tel:+923705856404" },
                   { icon: FiMessageCircle, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/923705856404" },
-                  { icon: FiMapPin, label: "Location", value: "Islamabad", href: null },
+                  { icon: FiMapPin, label: "Location", value: "Phoenix, USA", href: null },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center">
