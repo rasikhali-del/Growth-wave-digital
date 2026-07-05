@@ -57,7 +57,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right - Dashboard Mockup */}
+          {/* Right - Premium Photo with Floating Stat Cards */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -66,94 +66,75 @@ export default function Hero() {
           >
             <div className="relative">
               {/* Glowing background */}
-              <div className="absolute -inset-20 bg-gradient-to-br from-primary/20 via-transparent to-purple-300/20 rounded-[40px] blur-[60px]" />
+              <div className="absolute -inset-16 bg-gradient-to-br from-primary/25 via-transparent to-purple-300/25 rounded-[40px] blur-[70px]" />
 
-              {/* Main dashboard */}
-              <div className="relative glass-card rounded-3xl p-6 shadow-2xl shadow-primary/10 overflow-hidden">
-                {/* Top bar */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="text-xs text-gray-400 font-medium">Dashboard Overview</div>
-                  <div className="text-xs text-green-500 font-medium">● Live</div>
-                </div>
-
-                {/* Stats row */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  {[
-                    { label: "Total Leads", value: "2,847", change: "+12.5%", color: "from-primary to-purple-600" },
-                    { label: "Conversion", value: "4.8%", change: "+2.1%", color: "from-green-500 to-emerald-600" },
-                    { label: "Revenue", value: "$128K", change: "+23.7%", color: "from-blue-500 to-cyan-600" },
-                  ].map((card) => (
-                    <motion.div
-                      key={card.label}
-                      className="rounded-2xl p-4 bg-gradient-to-br from-white to-purple-50/50 border border-purple-100/50"
-                      whileHover={{ y: -2 }}
-                    >
-                      <div className="text-xs text-gray-500 mb-1">{card.label}</div>
-                      <div className="text-xl font-bold text-gray-900">{card.value}</div>
-                      <div className="text-xs text-green-500 font-medium">{card.change}</div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Chart area */}
-                <div className="rounded-2xl p-5 bg-gradient-to-br from-gray-50 to-purple-50/30 border border-gray-100 mb-4">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="text-sm font-medium text-gray-700">Lead Growth</div>
-                    <div className="flex gap-2">
-                      {["Week", "Month", "Year"].map((t) => (
-                        <span key={t} className={`text-xs px-2.5 py-1 rounded-lg ${t === "Month" ? "bg-primary text-white" : "bg-gray-100 text-gray-500"}`}>{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                  <svg viewBox="0 0 300 80" className="w-full">
-                    <defs>
-                      <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#A22AFF" stopOpacity="0.3" />
-                        <stop offset="100%" stopColor="#A22AFF" stopOpacity="0" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M0 60 Q20 70 40 50 Q60 30 80 45 Q100 55 120 35 Q140 15 160 25 Q180 40 200 20 Q220 10 240 18 Q260 25 280 12 Q290 8 300 10" fill="none" stroke="#A22AFF" strokeWidth="2.5" strokeLinecap="round" />
-                    <path d="M0 60 Q20 70 40 50 Q60 30 80 45 Q100 55 120 35 Q140 15 160 25 Q180 40 200 20 Q220 10 240 18 Q260 25 280 12 Q290 8 300 10 L300 80 L0 80 Z" fill="url(#chartGrad)" />
-                  </svg>
-                </div>
-
-                {/* Bottom metrics */}
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    { metric: "Leads This Month", value: "342", trend: "↑ 18%" },
-                    { metric: "Avg. Response Time", value: "2.4 min", trend: "↓ 12%" },
-                    { metric: "Campaign ROI", value: "342%", trend: "↑ 45%" },
-                    { metric: "Active Campaigns", value: "12", trend: "+3 new" },
-                  ].map((item) => (
-                    <div key={item.metric} className="flex items-center justify-between p-3 rounded-xl bg-white/50 border border-gray-100">
-                      <div>
-                        <div className="text-xs text-gray-500">{item.metric}</div>
-                        <div className="text-lg font-bold text-gray-900">{item.value}</div>
-                      </div>
-                      <div className="text-xs text-green-500 font-medium">{item.trend}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Floating elements */}
+              {/* Main image */}
               <motion.div
-                className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg"
-                animate={{ y: [0, -10, 0] }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.5 }}
+                className="relative rounded-[32px] overflow-hidden shadow-2xl shadow-primary/20 ring-1 ring-white/50"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&q=85&auto=format&fit=crop"
+                  alt="Business growth success"
+                  className="w-full h-[560px] object-cover"
+                />
+                {/* Gradient overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-600/10" />
+              </motion.div>
+
+              {/* Floating stat card - Top Right */}
+              <motion.div
+                initial={{ opacity: 0, x: 30, y: -20 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                whileHover={{ y: -6 }}
+                className="absolute top-8 -right-6 glass-card rounded-2xl p-4 shadow-xl shadow-primary/10 backdrop-blur-xl bg-white/90"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+                    <FiTrendingUp className="text-white text-lg" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500">Revenue Growth</div>
+                    <div className="text-lg font-bold text-gray-900">+284%</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating stat card - Bottom Left */}
+              <motion.div
+                initial={{ opacity: 0, x: -30, y: 20 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                whileHover={{ y: -6 }}
+                className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-4 shadow-xl shadow-primary/10 backdrop-blur-xl bg-white/90"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center">
+                    <FiUsers className="text-white text-lg" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500">Happy Clients</div>
+                    <div className="text-lg font-bold text-gray-900">150+</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating badge - Middle Right */}
+              <motion.div
+                className="absolute top-1/2 -right-8 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/30"
+                animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 20V10" /><path d="M18 20V4" /><path d="M6 20v-4" />
-                </svg>
+                <FiBarChart2 className="text-white text-2xl" />
               </motion.div>
+
+              {/* Small floating dot accent */}
               <motion.div
-                className="absolute -bottom-2 -left-6 w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg"
-                animate={{ y: [0, 8, 0] }}
+                className="absolute bottom-1/3 -left-4 w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30"
+                animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

@@ -34,13 +34,20 @@ export default function Navbar() {
       }`}
     >
       <div className="container-wide flex items-center justify-between h-20">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-            </svg>
-          </div>
-          <span className="text-lg font-bold tracking-tight">Growth<span className="text-primary">Wave</span></span>
+        <Link to="/" className="flex items-center">
+          <motion.img
+            src="/g.jpeg"
+            alt="GrowthWave Digital"
+            className="h-14 w-auto object-contain rounded-2xl shadow-md shadow-purple-900/20 ring-1 ring-black/5"
+            initial={{ opacity: 0, y: -15, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            whileHover={{
+              scale: 1.08,
+              rotate: [0, -3, 3, 0],
+              transition: { duration: 0.5 },
+            }}
+          />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
