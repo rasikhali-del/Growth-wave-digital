@@ -1,0 +1,12 @@
+{
+  "name": "growthwave-digital",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev": "start powershell -NoExit -Command \"cd frontend; npm run dev\" & start powershell -NoExit -Command \"cd backend; npm run dev\"",
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd frontend && npm run build"
+  }
+}
