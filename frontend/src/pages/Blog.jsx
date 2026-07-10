@@ -1,63 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiClock, FiUser, FiTag } from "react-icons/fi";
-
-const posts = [
-  {
-    title: "SEO in 2026: The AI Revolution",
-    excerpt: "How AI is transforming search engine optimization and what it means for your business.",
-    date: "Jun 28, 2026",
-    author: "Growth Wave Team",
-    category: "SEO",
-    slug: "seo-2026-ai-revolution",
-    image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=800&q=80&auto=format&fit=crop",
-  },
-  {
-    title: "The Ultimate Guide to Local SEO",
-    excerpt: "Dominate local search results and attract more customers from your area.",
-    date: "Jun 20, 2026",
-    author: "Growth Wave Team",
-    category: "Local SEO",
-    slug: "ultimate-local-seo-guide",
-    image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80&auto=format&fit=crop",
-  },
-  {
-    title: "Social Media Trends 2026",
-    excerpt: "The latest social media strategies that are driving real business results.",
-    date: "Jun 12, 2026",
-    author: "Growth Wave Team",
-    category: "Social Media",
-    slug: "social-media-trends-2026",
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80&auto=format&fit=crop",
-  },
-  {
-    title: "PPC Advertising: Maximizing ROI",
-    excerpt: "How to structure and optimize your paid campaigns for maximum return.",
-    date: "Jun 5, 2026",
-    author: "Growth Wave Team",
-    category: "Digital Marketing",
-    slug: "ppc-maximizing-roi",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80&auto=format&fit=crop",
-  },
-  {
-    title: "Content Marketing That Converts",
-    excerpt: "Create content that doesn't just attract visitors — it converts them into customers.",
-    date: "May 28, 2026",
-    author: "Growth Wave Team",
-    category: "Content Marketing",
-    slug: "content-marketing-converts",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80&auto=format&fit=crop",
-  },
-  {
-    title: "AI in Digital Marketing",
-    excerpt: "How artificial intelligence is reshaping the digital marketing landscape.",
-    date: "May 20, 2026",
-    author: "Growth Wave Team",
-    category: "AI",
-    slug: "ai-digital-marketing",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80&auto=format&fit=crop",
-  },
-];
+import { FiClock, FiUser, FiArrowRight } from "react-icons/fi";
+import { posts } from "../sections/posts";
 
 export default function Blog() {
   return (
@@ -89,17 +33,19 @@ export default function Blog() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
                 whileHover={{ y: -4 }}
-                className="group glass-card rounded-2xl overflow-hidden cursor-pointer"
+                className="group glass-card rounded-2xl overflow-hidden"
               >
-                <div className="h-48 overflow-hidden relative">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
+                <Link to={`/blog/${post.slug}`}>
+                  <div className="h-48 overflow-hidden relative cursor-pointer">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                  </div>
+                </Link>
                 <div className="p-6">
                   <span className="text-xs font-semibold text-primary bg-primary/5 px-3 py-1.5 rounded-full">
                     {post.category}
@@ -108,10 +54,16 @@ export default function Blog() {
                     {post.title}
                   </h3>
                   <p className="text-sm text-gray-500 leading-relaxed mb-4">{post.excerpt}</p>
-                  <div className="flex items-center gap-4 text-xs text-gray-400">
+                  <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
                     <span className="flex items-center gap-1"><FiClock size={12} /> {post.date}</span>
                     <span className="flex items-center gap-1"><FiUser size={12} /> {post.author}</span>
                   </div>
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                  >
+                    Read More <FiArrowRight size={14} />
+                  </Link>
                 </div>
               </motion.article>
             ))}

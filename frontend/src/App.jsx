@@ -12,7 +12,7 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import WorkWithUs from "./pages/WorkWithUs";
 import ScrollToTop from "./components/ScrollToTop";
-
+import BlogPost from "./pages/BlogPost";
 export default function App() {
   const location = useLocation();
 
@@ -28,6 +28,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:service" element={<ServiceDetail />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/work-with-us" element={<WorkWithUs />} />
         </Routes>
