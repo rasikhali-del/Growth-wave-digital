@@ -16,8 +16,8 @@ const team = [
   { name: "Ubaid Ahmed", role: "Social media marketing & SEO specialist", image: "/Ubaid.jpeg", position: "center 20%", initials: "UB" },
   { name: "Azeem", role: "Lead generation & Social media marketing Expert", image: "/Azeem.jpeg", position: "center top", initials: "AZ" },
   { name: "Khalil", role: "Video editor & Graphic designer", image: "/Khalil.jpeg", position: "center top", initials: "KH" },
-  { name: "Waji", role: "Video editor & Graphic designer", image: "/Waji.jpeg", position: "center top", initials: "W" },
-  { name: "Ashir", role: "Video editor & Graphic designer", image: "/Ashir.jpeg", position: "center top", initials: "A" },
+  { name: "Waji", role: "Content Writer", image: "/Waji.jpeg", position: "center top", initials: "W" },
+  { name: "Ashir", role: "AI Automation", image: "/Ashir.jpeg", position: "center top", initials: "A" },
   { name: "Rasikh Ali", role: "Web Developer", image: "/unnamed.jpg", position: "center top", initials: "RA" },
 ];
 
