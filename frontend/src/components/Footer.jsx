@@ -21,10 +21,29 @@ const footerLinks = {
   ],
 };
 
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/growth_wave_digital/",
+    path: "M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.6 1.772 1.153a4.908 4.908 0 011.153 1.772c.247.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772 4.915 4.915 0 01-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.01 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.065.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.363-.415 2.428-.465C8.944 2.01 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.25a3.25 3.25 0 110-6.5 3.25 3.25 0 010 6.5zM17.5 6.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61587130524928",
+    path: "M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z",
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@growth_wave_digital?lang=en-GB",
+    path: "M16.5 2h-3v13.5a2.5 2.5 0 11-2.5-2.5c.17 0 .34.01.5.04V9.9a5.5 5.5 0 105.5 5.5V8.2a7.9 7.9 0 004.5 1.4V6.6a4.9 4.9 0 01-4.5-4.6z",
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-[#0A0A0F] text-white relative overflow-hidden">
-    <br></br><br></br>
+      <br></br>
+      <br></br>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="container-wide py-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
@@ -41,19 +60,20 @@ export default function Footer() {
               AI-powered digital marketing agency helping businesses scale with data-driven strategies.
             </p>
             <div className="flex gap-3 mt-6">
-              {["M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z", "M2 9l6-5.5L14 9v10a2 2 0 01-2 2H4a2 2 0 01-2-2V9z", "M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0022.43 2c-.96.57-2.02.98-3.15 1.2A4.47 4.47 0 0011.02 6c0 .35.04.7.1 1.04A12.72 12.72 0 013 2.83a4.47 4.47 0 001.38 5.97A4.47 4.47 0 012 7.82v.06a4.48 4.48 0 003.59 4.39c-.2.05-.4.08-.6.08-.15 0-.3-.02-.44-.04a4.48 4.48 0 004.18 3.11A8.98 8.98 0 011 17.76a12.67 12.67 0 006.87 2.01c8.24 0 12.75-6.83 12.75-12.75 0-.19 0-.38-.01-.57A9.11 9.11 0 0023 3z"].map(
-                (path, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="w-9 h-9 rounded-lg bg-white/5 hover:bg-primary/20 flex items-center justify-center transition-colors"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d={path} />
-                    </svg>
-                  </a>
-                )
-              )}
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  title={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg bg-white/5 hover:bg-primary/20 flex items-center justify-center transition-colors"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <path d={social.path} />
+                  </svg>
+                </a>
+              ))}
             </div>
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (
