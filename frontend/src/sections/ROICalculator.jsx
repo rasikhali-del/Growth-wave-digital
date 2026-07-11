@@ -11,7 +11,7 @@ export default function ROICalculator() {
   const revenue = leads * aov;
 
   return (
-    <section className="section-padding relative px-4 sm:px-6">
+    <section className="section-padding relative px-4 sm:px-6 overflow-x-hidden">
       <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -82,14 +82,23 @@ export default function ROICalculator() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="flex sm:block items-center sm:text-center gap-3 sm:gap-0 p-4 rounded-2xl bg-gray-50"
+                className="flex sm:flex-col items-center sm:items-center sm:text-center gap-3 sm:gap-0 p-4 rounded-2xl bg-gray-50 w-full max-w-full overflow-hidden"
               >
                 <item.icon
                   className="sm:mx-auto text-xl mb-0 sm:mb-2 shrink-0"
                   style={{ color: item.color }}
                 />
-                <div className="min-w-0">
-                  <div className="text-xl sm:text-2xl font-bold text-gray-900 break-words">{item.value}</div>
+                <div className="min-w-0 flex-1 sm:flex-initial sm:w-full">
+                  <div
+                    className="font-bold text-gray-900 leading-tight"
+                    style={{
+                      wordBreak: "break-all",
+                      overflowWrap: "anywhere",
+                      fontSize: "clamp(0.95rem, 4.5vw, 1.5rem)",
+                    }}
+                  >
+                    {item.value}
+                  </div>
                   <div className="text-xs text-gray-500">{item.label}</div>
                 </div>
               </div>
