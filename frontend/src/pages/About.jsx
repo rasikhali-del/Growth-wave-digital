@@ -16,6 +16,9 @@ const team = [
   { name: "Ubaid Ahmed", role: "Social media marketing & SEO specialist", image: "/Ubaid.jpeg", position: "center 20%", initials: "UB" },
   { name: "Azeem", role: "Lead generation & Social media marketing Expert", image: "/Azeem.jpeg", position: "center top", initials: "AZ" },
   { name: "Khalil", role: "Video editor & Graphic designer", image: "/Khalil.jpeg", position: "center top", initials: "KH" },
+  { name: "Waji", role: "Video editor & Graphic designer", image: "/Waji.jpeg", position: "center top", initials: "W" },
+  { name: "Ashir", role: "Video editor & Graphic designer", image: "/Ashir.jpeg", position: "center top", initials: "A" },
+  { name: "Rasikh Ali", role: "Web Developer", image: "/unnamed.jpg", position: "center top", initials: "RA" },
 ];
 
 const stats = [
@@ -111,7 +114,7 @@ export default function About() {
       </section>
 
       {/* Story */}
-      <section className="section-padding">
+      <section className="p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/15">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -175,7 +178,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="section-padding bg-gradient-to-b from-transparent via-purple-50/20 to-transparent relative overflow-hidden">
+      <section className="p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/15">
         <div className="container-wide relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -217,7 +220,7 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="section-padding">
+      <section className="p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/15">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import axios from "axios";
-
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+import emailjs from "@emailjs/browser";
 
 export default function Form({ source = "contact" }) {
   const [form, setForm] = useState({
@@ -23,26 +21,59 @@ export default function Form({ source = "contact" }) {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setSuccess("");
+  e.preventDefault();
 
-    if (!form.name.trim() || !form.email.trim() || !form.phone.trim()) {
-      setError("Name, email, and phone are required.");
-      return;
-    }
+  setError("");
+  setSuccess("");
 
-    setLoading(true);
-    try {
-      const { data } = await axios.post(`${API_URL}/api/lead`, { ...form, source });
-      setSuccess(data.message);
-      setForm({ name: "", company: "", website: "", email: "", phone: "", country: "", service: "", budget: "", message: "" });
-    } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  if (!form.name.trim() || !form.email.trim() || !form.phone.trim()) {
+    setError("Name, Email and Phone are required.");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        name: form.name,
+        company: form.company,
+        website: form.website,
+        email: form.email,
+        phone: form.phone,
+        country: form.country,
+        service: form.service,
+        budget: form.budget,
+        message: form.message,
+        time: new Date().toLocaleString(),
+        source: source,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
+    setSuccess("Thank you! Your message has been sent successfully.");
+
+    setForm({
+      name: "",
+      company: "",
+      website: "",
+      email: "",
+      phone: "",
+      country: "",
+      service: "",
+      budget: "",
+      message: "",
+    });
+
+  } catch (error) {
+    console.error(error);
+    setError("Failed to send message. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
