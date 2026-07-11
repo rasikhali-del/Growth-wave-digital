@@ -35,19 +35,14 @@ export default function Navbar() {
     >
       <div className="container-wide flex items-center justify-between h-20">
         <Link to="/" className="flex items-center">
-          <motion.img
-            src="/g.jpeg"
-            alt="GrowthWave Digital"
-            className="h-14 w-auto object-contain rounded-2xl shadow-md shadow-purple-900/20 ring-1 ring-black/5"
-            initial={{ opacity: 0, y: -15, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            whileHover={{
-              scale: 1.08,
-              rotate: [0, -3, 3, 0],
-              transition: { duration: 0.5 },
-            }}
-          />
+         <motion.img
+  src="/Growth.png"
+  alt="GrowthWave Digital"
+  className="h-16 w-16 object-cover rounded-2xl shadow-md shadow-purple-900/20 ring-1 ring-black/5"
+  initial={{ opacity: 0, y: -15, scale: 0.9 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  transition={{ duration: 0.6 }}
+/>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

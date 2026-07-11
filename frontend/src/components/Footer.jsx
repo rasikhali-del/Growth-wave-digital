@@ -49,12 +49,11 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                </svg>
-              </div>
-              <span className="text-lg font-bold">Growth<span className="text-primary">Wave</span></span>
+              <img
+                src="/Growth.png"
+                alt="GrowthWave Digital"
+                className="h-14 w-auto object-contain rounded-2xl shadow-md shadow-purple-900/20 ring-1 ring-black/5"
+              />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               AI-powered digital marketing agency helping businesses scale with data-driven strategies.
