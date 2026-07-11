@@ -114,68 +114,68 @@ export default function About() {
       </section>
 
       {/* Story */}
-      <section className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/15 mx-2 sm:mx-0">
-        <div className="container-wide px-2 sm:px-6">
-          <div className="grid md:grid-cols-2 gap-10 sm:gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+      <section className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/15 mx-2 sm:mx-0 overflow-hidden">
+  <div className="container-wide px-2 sm:px-6">
+    <div className="grid md:grid-cols-2 gap-8 sm:gap-16 items-center">
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">
+          Our <span className="text-gradient">Story</span>
+        </h2>
+        <div className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+          {[
+            "Founded in 2026, Growth Wave Digital started with a simple belief: digital marketing should be accessible, transparent, and results-driven.",
+            "We saw too many agencies charging premium prices for mediocre results. Too much fluff, not enough substance. So we built a different kind of agency — one powered by AI, driven by data, and obsessed with ROI.",
+            "Today, we serve 150+ businesses across multiple industries, delivering measurable growth through innovative strategies and cutting-edge technology.",
+          ].map((text, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ delay: i * 0.15 }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">
-                Our <span className="text-gradient">Story</span>
-              </h2>
-              <div className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed">
-                {[
-                  "Founded in 2026, Growth Wave Digital started with a simple belief: digital marketing should be accessible, transparent, and results-driven.",
-                  "We saw too many agencies charging premium prices for mediocre results. Too much fluff, not enough substance. So we built a different kind of agency — one powered by AI, driven by data, and obsessed with ROI.",
-                  "Today, we serve 150+ businesses across multiple industries, delivering measurable growth through innovative strategies and cutting-edge technology.",
-                ].map((text, i) => (
-                  <motion.p
-                    key={i}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.15 }}
-                  >
-                    {text}
-                  </motion.p>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 40, rotate: -2 }}
-              whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, type: "spring" }}
-              whileHover={{ y: -6 }}
-              className="glass-card rounded-3xl p-5 sm:p-8 shadow-lg"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {["Mission", "Vision"].map((item, i) => (
-                  <motion.div
-                    key={item}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.15 }}
-                    whileHover={{ scale: 1.05, y: -3 }}
-                    className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/5"
-                  >
-                    <h3 className="font-semibold text-gray-900 mb-2">{item}</h3>
-                    <p className="text-sm text-gray-500">
-                      {item === "Mission"
-                        ? "Empower businesses with AI-driven marketing that delivers measurable growth."
-                        : "Become the world's most trusted digital growth partner for forward-thinking businesses."}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+              {text}
+            </motion.p>
+          ))}
         </div>
-      </section>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 40, rotate: 0 }}
+        whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, type: "spring" }}
+        whileHover={{ y: -6 }}
+        className="glass-card rounded-3xl p-5 sm:p-8 shadow-lg w-full max-w-full"
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {["Mission", "Vision"].map((item, i) => (
+            <motion.div
+              key={item}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 }}
+              whileHover={{ scale: 1.05, y: -3 }}
+              className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/5"
+            >
+              <h3 className="font-semibold text-gray-900 mb-2">{item}</h3>
+              <p className="text-sm text-gray-500">
+                {item === "Mission"
+                  ? "Empower businesses with AI-driven marketing that delivers measurable growth."
+                  : "Become the world's most trusted digital growth partner for forward-thinking businesses."}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Values */}
       <section className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/15 mx-2 sm:mx-0 mt-6">
