@@ -11,7 +11,6 @@ export default function Form({ source = "contact" }) {
     phone: "",
     country: "",
     service: "",
-    budget: "",
     message: "",
   });
   const [loading, setLoading] = useState(false);
@@ -26,8 +25,17 @@ export default function Form({ source = "contact" }) {
   setError("");
   setSuccess("");
 
-  if (!form.name.trim() || !form.email.trim() || !form.phone.trim()) {
-    setError("Name, Email and Phone are required.");
+  if (
+    !form.name.trim() ||
+    !form.company.trim() ||
+    !form.website.trim() ||
+    !form.email.trim() ||
+    !form.phone.trim() ||
+    !form.country.trim() ||
+    !form.service.trim() ||
+    !form.message.trim()
+  ) {
+    setError("Please fill in all fields.");
     return;
   }
 
@@ -45,7 +53,6 @@ export default function Form({ source = "contact" }) {
         phone: form.phone,
         country: form.country,
         service: form.service,
-        budget: form.budget,
         message: form.message,
         time: new Date().toLocaleString(),
         source: source,
@@ -63,7 +70,6 @@ export default function Form({ source = "contact" }) {
       phone: "",
       country: "",
       service: "",
-      budget: "",
       message: "",
     });
 
@@ -80,11 +86,11 @@ export default function Form({ source = "contact" }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {[
           { label: "Full Name *", name: "name", type: "text" },
-          { label: "Company", name: "company", type: "text" },
-          { label: "Website", name: "website", type: "url" },
+          { label: "Company *", name: "company", type: "text" },
+          { label: "Website *", name: "website", type: "url" },
           { label: "Email *", name: "email", type: "email" },
           { label: "Phone *", name: "phone", type: "tel" },
-          { label: "Country", name: "country", type: "text" },
+          { label: "Country *", name: "country", type: "text" },
         ].map((field) => (
           <div key={field.name}>
             <label className="block text-sm font-medium text-gray-700 mb-1.5">{field.label}</label>
@@ -94,45 +100,30 @@ export default function Form({ source = "contact" }) {
               value={form[field.name]}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white/50"
-              required={field.label.includes("*")}
+              required
             />
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1.5">Service</label>
-          <select
-            name="service"
-            value={form.service}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white/50"
-          >
-            <option value="">Select a service</option>
-            {["SEO", "Local SEO", "Social Media Marketing", "Digital Marketing", "Lead Generation", "WordPress Development", "Shopify Management", "Content Creation", "Video Editing", "AI Automation"].map((s) => (
-              <option key={s} value={s}>{s}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1.5">Budget (optional)</label>
-          <select
-            name="budget"
-            value={form.budget}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white/50"
-          >
-            <option value="">Select budget range</option>
-            {["Under $1,000", "$1,000 - $3,000", "$3,000 - $5,000", "$5,000 - $10,000", "$10,000+"].map((b) => (
-              <option key={b} value={b}>{b}</option>
-            ))}
-          </select>
-        </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1.5">Service *</label>
+        <select
+          name="service"
+          value={form.service}
+          onChange={handleChange}
+          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white/50"
+          required
+        >
+          <option value="">Select a service</option>
+          {["SEO", "Local SEO", "Social Media Marketing", "Digital Marketing", "Lead Generation", "WordPress Development", "Shopify Management", "Content Creation", "Video Editing", "AI Automation"].map((s) => (
+            <option key={s} value={s}>{s}</option>
+          ))}
+        </select>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1.5">Project Details</label>
+        <label className="block text-sm font-medium text-gray-700 mb-1.5">Project Details *</label>
         <textarea
           name="message"
           value={form.message}
@@ -140,6 +131,7 @@ export default function Form({ source = "contact" }) {
           rows={4}
           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white/50 resize-none"
           placeholder="Tell us about your project..."
+          required
         />
       </div>
 
