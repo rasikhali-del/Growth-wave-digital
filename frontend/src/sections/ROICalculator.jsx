@@ -11,26 +11,26 @@ export default function ROICalculator() {
   const revenue = leads * aov;
 
   return (
-    <section className="section-padding relative">
+    <section className="section-padding relative px-4 sm:px-6">
       <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-10 sm:mb-12"
         >
-          <span className="text-primary text-sm font-semibold uppercase tracking-widest">ROI Calculator</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-4">
+          <span className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-widest">ROI Calculator</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4 px-2">
             Calculate Your <span className="text-gradient">Potential Growth</span>
           </h2>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto glass-card rounded-3xl p-8 md:p-10">
+        <div className="max-w-2xl mx-auto glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10">
           <div className="space-y-6 mb-8">
             <div>
-              <label className="flex items-center justify-between text-sm font-medium text-gray-700 mb-2">
+              <label className="flex items-center justify-between text-sm font-medium text-gray-700 mb-2 gap-2">
                 <span>Monthly Website Visitors</span>
-                <span className="text-primary font-bold">{visitors.toLocaleString()}</span>
+                <span className="text-primary font-bold whitespace-nowrap">{visitors.toLocaleString()}</span>
               </label>
               <input
                 type="range"
@@ -43,9 +43,9 @@ export default function ROICalculator() {
               />
             </div>
             <div>
-              <label className="flex items-center justify-between text-sm font-medium text-gray-700 mb-2">
+              <label className="flex items-center justify-between text-sm font-medium text-gray-700 mb-2 gap-2">
                 <span>Current Conversion Rate (%)</span>
-                <span className="text-primary font-bold">{rate}%</span>
+                <span className="text-primary font-bold whitespace-nowrap">{rate}%</span>
               </label>
               <input
                 type="range"
@@ -58,9 +58,9 @@ export default function ROICalculator() {
               />
             </div>
             <div>
-              <label className="flex items-center justify-between text-sm font-medium text-gray-700 mb-2">
+              <label className="flex items-center justify-between text-sm font-medium text-gray-700 mb-2 gap-2">
                 <span>Avg. Order Value ($)</span>
-                <span className="text-primary font-bold">${aov}</span>
+                <span className="text-primary font-bold whitespace-nowrap">${aov}</span>
               </label>
               <input
                 type="range"
@@ -74,16 +74,24 @@ export default function ROICalculator() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
             {[
               { icon: FiUsers, label: "Monthly Leads", value: leads.toLocaleString(), color: "#A22AFF" },
               { icon: FiTrendingUp, label: "Conversion Rate", value: `${rate}%`, color: "#06B6D4" },
               { icon: FiDollarSign, label: "Potential Revenue", value: `$${revenue.toLocaleString()}`, color: "#10B981" },
             ].map((item) => (
-              <div key={item.label} className="text-center p-4 rounded-2xl bg-gray-50">
-                <item.icon className="mx-auto text-xl mb-2" style={{ color: item.color }} />
-                <div className="text-2xl font-bold text-gray-900">{item.value}</div>
-                <div className="text-xs text-gray-500">{item.label}</div>
+              <div
+                key={item.label}
+                className="flex sm:block items-center sm:text-center gap-3 sm:gap-0 p-4 rounded-2xl bg-gray-50"
+              >
+                <item.icon
+                  className="sm:mx-auto text-xl mb-0 sm:mb-2 shrink-0"
+                  style={{ color: item.color }}
+                />
+                <div className="min-w-0">
+                  <div className="text-xl sm:text-2xl font-bold text-gray-900 break-words">{item.value}</div>
+                  <div className="text-xs text-gray-500">{item.label}</div>
+                </div>
               </div>
             ))}
           </div>
@@ -91,7 +99,7 @@ export default function ROICalculator() {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-center text-sm text-gray-400 mt-6"
+            className="text-center text-xs sm:text-sm text-gray-400 mt-6"
           >
             *Based on conservative estimates. Actual results may vary.
           </motion.p>
