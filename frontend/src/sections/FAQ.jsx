@@ -4,28 +4,28 @@ import { FiChevronDown, FiHelpCircle } from "react-icons/fi";
 
 const faqs = [
   {
+    q: "What digital marketing services do you offer?",
+    a: "We offer SEO, Local SEO, Social Media Marketing, Lead Generation, Content Creation, WordPress Development, Shopify Management, Video Editing, and complete digital marketing solutions tailored to your business.",
+  },
+  {
+    q: "How do I get started?",
+    a: "Simply contact us through our website. We'll discuss your business goals and recommend the best strategy for your needs.",
+  },
+  {
+    q: "Do you work with small businesses?",
+    a: "Yes. We work with startups, small businesses, and growing companies, creating customized marketing strategies based on their goals and budget.",
+  },
+  {
     q: "How long does it take to see results?",
-    a: "Most clients see measurable improvements within 30-60 days. SEO typically takes 3-6 months for significant rankings, while paid campaigns can generate leads within days.",
+    a: "The timeline depends on the service you choose. Paid advertising can deliver results quickly, while SEO and organic marketing typically require more time to build long-term growth.",
   },
   {
-    q: "What industries do you specialize in?",
-    a: "We work across multiple industries including dental, fitness, legal, ecommerce, healthcare, real estate, and local service businesses. Our strategies are tailored to each industry's unique dynamics.",
+    q: "Do you provide regular progress updates?",
+    a: "Yes. We keep our clients informed with regular updates and performance reports so you can track the progress of your marketing campaigns.",
   },
   {
-    q: "How much does digital marketing cost?",
-    a: "Our pricing varies based on your goals, competition, and scope. We offer packages starting from $1,000/month. Contact us for a custom quote tailored to your business.",
-  },
-  {
-    q: "Do you offer month-to-month contracts?",
-    a: "Yes, we offer flexible engagements including month-to-month options. However, we recommend a minimum 3-6 month commitment for optimal results, especially for SEO campaigns.",
-  },
-  {
-    q: "How do you report results?",
-    a: "You get access to a real-time dashboard tracking all key metrics. We also provide monthly detailed reports with insights, analysis, and recommendations for continuous improvement.",
-  },
-  {
-    q: "What makes Growth Wave different?",
-    a: "We combine AI-powered strategies with proven marketing expertise. Our data-driven approach, transparent reporting, and dedicated team ensure you get maximum ROI from every dollar spent.",
+    q: "Can you create a custom marketing plan for my business?",
+    a: "Absolutely. Every business is different, so we develop customized strategies based on your industry, goals, target audience, and budget.",
   },
 ];
 

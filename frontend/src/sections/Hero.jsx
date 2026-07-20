@@ -20,15 +20,17 @@ export default function Hero() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs sm:text-sm font-medium mb-6">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              AI-Powered Growth Solutions
+              Digital Growth Solutions
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.15] lg:leading-[1.1] tracking-tight mb-6">
-              Scale Faster With{" "}
-              <span className="text-gradient">AI-Powered</span>{" "}
-              Digital Growth
+              Scale Your Business With
+{" "}
+              <span className="text-gradient">Strategic </span>{" "}
+              Digital Marketing
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10">
-              Helping businesses generate more leads, sales, and revenue through strategic digital marketing.
+              Helping businesses generate more leads, increase sales, and build a stronger online presence through proven digital marketing strategies.
+
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
               <Link
@@ -47,7 +49,7 @@ export default function Hero() {
             </div>
             <div className="grid grid-cols-3 sm:flex sm:items-center gap-4 sm:gap-8 mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-100">
               {[
-                { value: "150+", label: "Clients Served", icon: FiUsers },
+                { value: "100%", label: "Client-Focused", icon: FiUsers },
                 { value: "300%", label: "Avg. ROI", icon: FiTrendingUp },
                 { value: "4.9", label: "Client Rating", icon: FiBarChart2 },
               ].map((stat) => (
@@ -123,8 +125,8 @@ export default function Hero() {
                     <FiUsers className="text-white text-sm sm:text-lg" />
                   </div>
                   <div>
-                    <div className="text-[10px] sm:text-xs text-gray-500">Happy Clients</div>
-                    <div className="text-sm sm:text-lg font-bold text-gray-900">150+</div>
+                    <div className="text-[10px] sm:text-xs text-gray-500">Client-Focused</div>
+                    <div className="text-sm sm:text-lg font-bold text-gray-900">100%</div>
                   </div>
                 </div>
               </motion.div>

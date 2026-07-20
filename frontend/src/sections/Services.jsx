@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { FiSearch, FiMapPin, FiShare2, FiTrendingUp, FiUsers, FiCode, FiShoppingCart, FiEdit, FiVideo, FiCpu } from "react-icons/fi";
 
 const services = [
-  { icon: FiSearch, title: "SEO", desc: "Dominate search results with data-driven SEO strategies that drive organic traffic." },
-  { icon: FiMapPin, title: "Local SEO", desc: "Get found by local customers and dominate your local market." },
-  { icon: FiShare2, title: "Social Media Marketing", desc: "Build a powerful brand presence across all major platforms." },
-  { icon: FiTrendingUp, title: "Digital Marketing", desc: "Full-funnel marketing campaigns that deliver measurable results." },
-  { icon: FiUsers, title: "Lead Generation", desc: "High-quality lead generation systems that fill your pipeline." },
-  { icon: FiCode, title: "WordPress Development", desc: "Custom WordPress sites built for speed, SEO, and conversions." },
-  { icon: FiShoppingCart, title: "Shopify Management", desc: "Expert Shopify store management and optimization." },
-  { icon: FiEdit, title: "Content Creation", desc: "Strategic content that educates, engages, and converts." },
-  { icon: FiVideo, title: "Video Editing", desc: "Professional video content that captures attention." },
+  { icon: FiSearch, title: "SEO", desc: "Improve your search rankings with data-driven SEO strategies that increase organic traffic." },
+  { icon: FiMapPin, title: "Local SEO", desc: "Help local customers find your business and grow your presence in your target area." },
+  { icon: FiShare2, title: "Social Media Marketing", desc: "Build a strong brand presence and engage your audience across major social platforms." },
+  { icon: FiTrendingUp, title: "Digital Marketing", desc: "Create full-funnel marketing campaigns focused on measurable business growth." },
+  { icon: FiUsers, title: "Lead Generation", desc: "Generate high-quality leads that help grow your sales pipeline." },
+  { icon: FiCode, title: "WordPress Development", desc: "Build fast, responsive, and SEO-friendly WordPress websites." },
+  { icon: FiShoppingCart, title: "Shopify Management", desc: "Manage and optimize your Shopify store for better performance and higher conversions." },
+  { icon: FiEdit, title: "Content Creation", desc: "Create engaging content that connects with your audience and supports your marketing goals." },
+  { icon: FiVideo, title: "Video Editing", desc: "Produce professional videos that capture attention and strengthen your brand." },
   { icon: FiCpu, title: "AI Automation", desc: "Automate workflows and scale your business with AI." },
 ];
 
