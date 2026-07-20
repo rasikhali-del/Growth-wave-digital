@@ -25,7 +25,7 @@ export default function FinalCTA() {
             Your Business?
           </h2>
           <p className="text-lg md:text-xl text-purple-200 max-w-xl mx-auto mb-10">
-            Join 150+ businesses that trust us to drive their digital growth.
+            Join 50+ businesses that trust us to drive their digital growth.
             Let's build your success story.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
