@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
-import { FiHeart, FiShield, FiShoppingBag, FiActivity, FiHome, FiMapPin, FiMonitor } from "react-icons/fi";
+import { FiHeart, FiShield, FiShoppingBag, FiActivity, FiHome, FiMapPin, FiMonitor, FiTrendingUp } from "react-icons/fi";
+
 
 const industries = [
-  { icon: FiMonitor, title: "Dental", color: "#06B6D4" },
   { icon: FiHeart, title: "Fitness", color: "#EC4899" },
   { icon: FiShield, title: "Law", color: "#8B5CF6" },
   { icon: FiShoppingBag, title: "Ecommerce", color: "#F59E0B" },
   { icon: FiActivity, title: "Healthcare", color: "#10B981" },
   { icon: FiHome, title: "Real Estate", color: "#6366F1" },
   { icon: FiMapPin, title: "Local Businesses", color: "#A22AFF" },
+  { icon: FiTrendingUp, title: "B2B & Marketing Agencies", color: "#EF4444" },
 ];
 
 export default function Industries() {
