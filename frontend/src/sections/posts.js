@@ -1,13 +1,17 @@
 export const posts = [
   {
     title: "SEO in 2026: The AI Revolution",
-    excerpt: "How AI is transforming search engine optimization and what it means for your business.",
+    metaTitle: "SEO in 2026: How AI Is Changing Search Rankings",
+    excerpt: "Learn how Local SEO helps businesses attract more local customers and improve search rankings.",
+    metaDescription: "Discover how AI-powered search engines are reshaping SEO in 2026 — from answer engines to topical authority — and what strategies actually work now.",
     date: "Jun 28, 2026",
     author: "Growth Wave Team",
     category: "SEO",
     slug: "seo-2026-ai-revolution",
     readTime: "7 min read",
     image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=1200&q=80&auto=format&fit=crop",
+    imageAlt: "Digital dashboard displaying SEO analytics and search ranking data",
+    keywords: ["SEO 2026", "AI search engines", "answer engines", "topical authority", "search rankings"],
     content: `Search engine optimization has changed more in the last two years than in the previous decade combined. AI-driven search engines now understand context, intent, and conversational queries far better than traditional keyword-matching algorithms ever could. For businesses, this shift isn't just a technical curiosity — it's rewriting the rulebook for how visibility is earned online.
 
 ## Why Traditional SEO Tactics Are Losing Ground
@@ -37,13 +41,17 @@ The businesses that adapt early to this AI-first search landscape will have a me
   },
   {
     title: "The Ultimate Guide to Local SEO",
+    metaTitle: "The Ultimate Local SEO Guide for 2026",
     excerpt: "Dominate local search results and attract more customers from your area.",
+    metaDescription: "Learn how to dominate local search results with Google Business Profile optimization, NAP consistency, location pages, and local link building.",
     date: "Jun 20, 2026",
     author: "Growth Wave Team",
     category: "Local SEO",
     slug: "ultimate-local-seo-guide",
     readTime: "8 min read",
     image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&q=80&auto=format&fit=crop",
+    imageAlt: "Local business storefront with a map pin marker representing local search visibility",
+    keywords: ["local SEO", "Google Business Profile", "NAP consistency", "near me searches", "local link building"],
     content: `Local SEO remains one of the highest-ROI strategies available to small and medium-sized businesses, yet it's also one of the most commonly neglected. While national brands compete for broad keywords, local businesses have a real opportunity to dominate searches in their own backyard — if they approach it strategically.
 
 ## Start With Your Google Business Profile
@@ -76,13 +84,17 @@ We combine profile optimization, citation cleanup, location page development, an
   },
   {
     title: "Social Media Trends 2026",
+    metaTitle: "Social Media Marketing Trends to Watch in 2026",
     excerpt: "The latest social media strategies that are driving real business results.",
+    metaDescription: "Explore the social media trends shaping 2026, from authentic content and community-driven reach to creator collaborations and long-form video.",
     date: "Jun 12, 2026",
     author: "Growth Wave Team",
     category: "Social Media",
     slug: "social-media-trends-2026",
     readTime: "6 min read",
     image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&q=80&auto=format&fit=crop",
+    imageAlt: "Person filming short-form social media video content on a smartphone",
+    keywords: ["social media trends 2026", "authentic content", "creator collaborations", "community engagement", "short-form video"],
     content: `Short-form video continues to dominate every major platform, but 2026 has brought a noticeable shift in what actually performs. Audiences are rewarding brands that feel real and relatable over content that's overly produced or obviously scripted — and that shift is changing how smart brands approach their social strategy.
 
 ## Authenticity Is Outperforming Polish
@@ -114,13 +126,17 @@ We help brands strike the right balance between planned, on-brand content and th
   },
   {
     title: "PPC Advertising: Maximizing ROI",
+    metaTitle: "PPC Advertising: How to Maximize Your Ad ROI",
     excerpt: "How to structure and optimize your paid campaigns for maximum return.",
+    metaDescription: "Get practical strategies for structuring PPC campaigns, from audience segmentation and negative keywords to landing pages and bid management.",
     date: "Jun 5, 2026",
     author: "Growth Wave Team",
     category: "Digital Marketing",
     slug: "ppc-maximizing-roi",
     readTime: "7 min read",
     image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80&auto=format&fit=crop",
+    imageAlt: "Marketing dashboard displaying PPC campaign performance metrics and charts",
+    keywords: ["PPC advertising", "maximize ad ROI", "audience segmentation", "negative keywords", "landing page optimization"],
     content: `Running paid ads without a clear structure is one of the fastest ways to burn through a budget with little to show for it. Successful PPC campaigns rarely come down to a single clever ad — they're the result of disciplined structure, continuous testing, and careful attention to where money is actually being spent.
 
 ## Start With Tight Audience Segmentation
@@ -153,13 +169,17 @@ We build paid campaigns around measurable ROI from day one — clear audience se
   },
   {
     title: "Content Marketing That Converts",
+    metaTitle: "Content Marketing That Converts Visitors Into Customers",
     excerpt: "Create content that doesn't just attract visitors — it converts them into customers.",
+    metaDescription: "Learn how to map content to each stage of the buyer's journey, address real objections, and build a content funnel that consistently converts.",
     date: "May 28, 2026",
     author: "Growth Wave Team",
     category: "Content Marketing",
     slug: "content-marketing-converts",
     readTime: "6 min read",
     image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80&auto=format&fit=crop",
+    imageAlt: "Content writer planning a marketing funnel on a whiteboard with sticky notes",
+    keywords: ["content marketing", "buyer's journey", "conversion content", "content funnel strategy", "content marketing that converts"],
     content: `Great content marketing isn't simply about publishing frequently — it's about mapping content deliberately to each stage of a buyer's journey, so that every piece has a clear job to do rather than existing just to fill a calendar.
 
 ## Understanding the Buyer's Journey
@@ -190,13 +210,17 @@ We start by mapping out the real questions and objections a client's customers h
   },
   {
     title: "AI in Digital Marketing",
+    metaTitle: "AI in Digital Marketing: Personalization at Scale",
     excerpt: "How artificial intelligence is reshaping the digital marketing landscape.",
+    metaDescription: "See how AI is reshaping digital marketing through predictive analytics, real-time personalization, and smarter customer segmentation strategies.",
     date: "May 20, 2026",
     author: "Growth Wave Team",
     category: "AI",
     slug: "ai-digital-marketing",
     readTime: "7 min read",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80&auto=format&fit=crop",
+    imageAlt: "Abstract visualization of AI and data network connections used in marketing",
+    keywords: ["AI in digital marketing", "predictive analytics", "marketing personalization", "AI segmentation", "AI marketing trends"],
     content: `AI tools are now embedded in nearly every part of digital marketing — from generating ad copy to predicting which customers are likely to churn. But the businesses winning with AI aren't simply the ones automating the most tasks; they're the ones using it to genuinely personalize experiences at scale, something that was practically impossible for most businesses just a few years ago.
 
 ## From Automation to Personalization

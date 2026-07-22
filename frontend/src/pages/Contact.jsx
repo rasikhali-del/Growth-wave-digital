@@ -1,10 +1,26 @@
 import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiMapPin, FiMessageCircle } from "react-icons/fi";
 import Form from "../components/Form";
+import { Helmet } from "react-helmet-async";
 
 export default function Contact() {
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <Helmet>
+<title>
+Contact Growth Wave Digital
+</title>
+
+<meta
+name="description"
+content="Contact Growth Wave Digital today and get your free business audit."
+/>
+
+<link
+rel="canonical"
+href="https://www.growthwave.site/contact"
+/>
+</Helmet>
       <section className="pt-32 pb-20 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-white to-transparent" />
         <div className="container-wide relative">

@@ -85,7 +85,7 @@ export default function Hero() {
               >
                 <img
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&q=85&auto=format&fit=crop"
-                  alt="Business growth success"
+                  alt="AI Digital Marketing Agency Dashboard"
                   className="w-full h-[320px] sm:h-[420px] md:h-[480px] lg:h-[560px] object-cover"
                 />
                 {/* Gradient overlay for depth */}

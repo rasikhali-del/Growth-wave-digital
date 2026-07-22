@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { FiArrowLeft, FiArrowRight, FiCheckCircle } from "react-icons/fi";
+import { Helmet } from "react-helmet-async";
 
 const serviceData = {
   seo: {
@@ -90,80 +91,153 @@ export default function ServiceDetail() {
   }
 
   return (
-    <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <section className="pt-32 pb-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-white to-transparent" />
-        <div className="container-wide relative">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <button onClick={() => navigate("/services")} className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors mb-6">
-              <FiArrowLeft /> All Services
-            </button>
-            <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                {data.title}{" "}
-                <span className="text-gradient">Services</span>
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">{data.longDesc}</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <>
+      <Helmet>
+        <title>{data.title} Services | Growth Wave Digital</title>
 
-      <section className="section-padding pt-0">
-        <div className="container-wide">
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl font-bold mb-6">Key Benefits</h2>
-              <div className="space-y-3">
-                {data.benefits.map((b, i) => (
-                  <motion.div
-                    key={b}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-gray-50"
-                  >
-                    <FiCheckCircle className="text-primary shrink-0" />
-                    <span className="text-gray-700">{b}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl font-bold mb-6">Our Process</h2>
-              <div className="space-y-3">
-                {data.process.map((step, i) => (
-                  <motion.div
-                    key={step}
-                    initial={{ opacity: 0, x: 10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="flex items-center gap-4 p-4 rounded-xl glass-card"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-sm font-bold shrink-0">
-                      {i + 1}
-                    </div>
-                    <span className="font-medium text-gray-700">{step}</span>
-                  </motion.div>
-                ))}
+        <meta
+          name="description"
+          content={data.desc}
+        />
+
+        <link
+          rel="canonical"
+          href={`https://www.growthwave.site/services/${service}`}
+        />
+
+        <meta property="og:type" content="website" />
+
+        <meta
+          property="og:title"
+          content={`${data.title} Services | Growth Wave Digital`}
+        />
+
+        <meta
+          property="og:description"
+          content={data.longDesc}
+        />
+
+        <meta
+          property="og:url"
+          content={`https://www.growthwave.site/services/${service}`}
+        />
+
+        <meta
+          property="og:image"
+          content="https://www.growthwave.site/og-image.jpg"
+        />
+
+        <meta
+          name="twitter:card"
+          content="summary_large_image"
+        />
+
+        <meta
+          name="twitter:title"
+          content={`${data.title} Services`}
+        />
+
+        <meta
+          name="twitter:description"
+          content={data.desc}
+        />
+
+        <meta
+          name="twitter:image"
+          content="https://www.growthwave.site/og-image.jpg"
+        />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: data.title,
+            name: `${data.title} Services`,
+            description: data.longDesc,
+            provider: {
+              "@type": "Organization",
+              name: "Growth Wave Digital",
+              url: "https://www.growthwave.site",
+            },
+          })}
+        </script>
+      </Helmet>
+
+      <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <section className="pt-32 pb-20 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-white to-transparent" />
+          <div className="container-wide relative">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <button onClick={() => navigate("/services")} className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors mb-6">
+                <FiArrowLeft /> All Services
+              </button>
+              <div className="max-w-3xl">
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                  {data.title}{" "}
+                  <span className="text-gradient">Services</span>
+                </h1>
+                <p className="text-xl text-gray-600 leading-relaxed">{data.longDesc}</p>
               </div>
             </motion.div>
           </div>
+        </section>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <Link to="/work-with-us" className="btn-primary text-base py-4 px-10">
-              Get Started with {data.title} <FiArrowRight />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-    </motion.main>
+        <section className="section-padding pt-0">
+          <div className="container-wide">
+            <div className="grid md:grid-cols-2 gap-12">
+              <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <h2 className="text-2xl font-bold mb-6">Key Benefits</h2>
+                <div className="space-y-3">
+                  {data.benefits.map((b, i) => (
+                    <motion.div
+                      key={b}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      className="flex items-center gap-3 p-3 rounded-xl bg-gray-50"
+                    >
+                      <FiCheckCircle className="text-primary shrink-0" />
+                      <span className="text-gray-700">{b}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <h2 className="text-2xl font-bold mb-6">Our Process</h2>
+                <div className="space-y-3">
+                  {data.process.map((step, i) => (
+                    <motion.div
+                      key={step}
+                      initial={{ opacity: 0, x: 10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      className="flex items-center gap-4 p-4 rounded-xl glass-card"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {i + 1}
+                      </div>
+                      <span className="font-medium text-gray-700">{step}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-16 text-center"
+            >
+              <Link to="/work-with-us" className="btn-primary text-base py-4 px-10">
+                Get Started with {data.title} <FiArrowRight />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      </motion.main>
+    </>
   );
 }

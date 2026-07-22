@@ -1,0 +1,15 @@
+{
+  "name": "Growth Wave Digital",
+  "short_name": "Growth Wave",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#A22AFF",
+  "icons": [
+    {
+      "src": "/Growth.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

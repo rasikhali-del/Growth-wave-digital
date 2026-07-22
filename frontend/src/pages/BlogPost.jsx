@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { FiClock, FiUser, FiTag, FiArrowLeft } from "react-icons/fi";
 import { posts } from "../sections/posts";
+import { Helmet } from "react-helmet-async";
 
 function renderContent(content) {
   const blocks = content.split("\n\n").filter(Boolean);
@@ -58,68 +59,146 @@ export default function BlogPost() {
   const related = posts.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
-    <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <section className="pt-32 pb-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-white to-transparent" />
-        <div className="container-wide relative max-w-3xl mx-auto">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary mb-8 hover:gap-3 transition-all"
-          >
-            <FiArrowLeft size={14} /> Back to Blog
-          </Link>
+    <>
+      <Helmet>
+        <title>{post.metaTitle || post.title} | Growth Wave Digital Blog</title>
 
-          <span className="text-primary text-sm font-semibold uppercase tracking-widest flex items-center gap-1">
-            <FiTag size={12} /> {post.category}
-          </span>
+        <meta
+          name="description"
+          content={post.metaDescription || post.excerpt || "Read the latest digital marketing insights from Growth Wave Digital."}
+        />
 
-          <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight text-gray-900">
-            {post.title}
-          </h1>
+        <meta
+          name="keywords"
+          content={(post.keywords && post.keywords.join(", ")) || `${post.category}, Digital Marketing, SEO, AI Automation, Growth Wave Digital`}
+        />
 
-          <div className="flex items-center gap-4 text-sm text-gray-400 mb-8">
-            <span className="flex items-center gap-1"><FiClock size={14} /> {post.date}</span>
-            <span className="flex items-center gap-1"><FiUser size={14} /> {post.author}</span>
-            {post.readTime && <span>· {post.readTime}</span>}
-          </div>
+        <meta property="og:type" content="article" />
 
-          <div className="h-72 md:h-[420px] rounded-2xl overflow-hidden mb-10">
-            <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-          </div>
+        <meta property="og:title" content={post.metaTitle || post.title} />
 
-          <article className="max-w-none">{renderContent(post.content)}</article>
+        <meta
+          property="og:description"
+          content={post.metaDescription || post.excerpt || "Read the latest digital marketing insights."}
+        />
 
-          {related.length > 0 && (
-            <div className="mt-16 pt-10 border-t border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">More from the blog</h3>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {related.map((r) => (
-                  <Link
-                    key={r.slug}
-                    to={`/blog/${r.slug}`}
-                    className="group glass-card rounded-2xl overflow-hidden block"
-                  >
-                    <div className="h-32 overflow-hidden">
-                      <img
-                        src={r.image}
-                        alt={r.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <span className="text-xs font-semibold text-primary">{r.category}</span>
-                      <h4 className="font-semibold text-gray-900 mt-1 group-hover:text-primary transition-colors">
-                        {r.title}
-                      </h4>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+        <meta property="og:image" content={post.image} />
+
+        <meta property="og:image:alt" content={post.imageAlt || post.title} />
+
+        <meta
+          property="og:url"
+          content={`https://www.growthwave.site/blog/${post.slug}`}
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta name="twitter:title" content={post.metaTitle || post.title} />
+
+        <meta
+          name="twitter:description"
+          content={post.metaDescription || post.excerpt || "Latest Digital Marketing Blog"}
+        />
+
+        <meta name="twitter:image" content={post.image} />
+
+        <link
+          rel="canonical"
+          href={`https://www.growthwave.site/blog/${post.slug}`}
+        />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.metaDescription || post.excerpt,
+            image: [post.image],
+            keywords: (post.keywords && post.keywords.join(", ")) || undefined,
+            author: {
+              "@type": "Person",
+              name: post.author,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Growth Wave Digital",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.growthwave.site/Growth.png",
+              },
+            },
+            datePublished: post.date,
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://www.growthwave.site/blog/${post.slug}`,
+            },
+          })}
+        </script>
+      </Helmet>
+
+      <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <section className="pt-32 pb-20 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-white to-transparent" />
+          <div className="container-wide relative max-w-3xl mx-auto">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary mb-8 hover:gap-3 transition-all"
+            >
+              <FiArrowLeft size={14} /> Back to Blog
+            </Link>
+
+            <span className="text-primary text-sm font-semibold uppercase tracking-widest flex items-center gap-1">
+              <FiTag size={12} /> {post.category}
+            </span>
+
+            <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight text-gray-900">
+              {post.title}
+            </h1>
+
+            <div className="flex items-center gap-4 text-sm text-gray-400 mb-8">
+              <span className="flex items-center gap-1"><FiClock size={14} /> {post.date}</span>
+              <span className="flex items-center gap-1"><FiUser size={14} /> {post.author}</span>
+              {post.readTime && <span>· {post.readTime}</span>}
             </div>
-          )}
-        </div>
-      </section>
-    </motion.main>
+
+            <div className="h-72 md:h-[420px] rounded-2xl overflow-hidden mb-10">
+              <img src={post.image} alt={post.imageAlt || post.title} className="w-full h-full object-cover" />
+            </div>
+
+            <article className="max-w-none">{renderContent(post.content)}</article>
+
+            {related.length > 0 && (
+              <div className="mt-16 pt-10 border-t border-gray-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">More from the blog</h3>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {related.map((r) => (
+                    <Link
+                      key={r.slug}
+                      to={`/blog/${r.slug}`}
+                      className="group glass-card rounded-2xl overflow-hidden block"
+                    >
+                      <div className="h-32 overflow-hidden">
+                        <img
+                          src={r.image}
+                          alt={r.imageAlt || r.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <span className="text-xs font-semibold text-primary">{r.category}</span>
+                        <h4 className="font-semibold text-gray-900 mt-1 group-hover:text-primary transition-colors">
+                          {r.title}
+                        </h4>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      </motion.main>
+    </>
   );
 }
